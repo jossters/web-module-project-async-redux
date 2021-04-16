@@ -8,13 +8,19 @@ const RandomCat = (props) => {
     fetchData();
   }, [fetchData]);
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+  props.fetchData();
+}
+
 return (
     <div>
      {props.isLoading ? <h3>Loading data...</h3> : null}
      {props.error ? <p style={{ color: "red" }}>{props.error}</p> : null}
-     
+    <button onClick={handleSubmit}>FEtch</button>
+     <br></br>
         <img alt="cat" src = {props.cat.url}/>
-      
+        
     </div>
 )
 }
